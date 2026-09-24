@@ -1,0 +1,29 @@
+{
+  "summary": "First-finish smoke test of ImpactOS. Backend auth (login/register/me), stats, all CRUD list endpoints, event create+delete, public org endpoint, and 401-on-unauth all pass. Frontend login redirects to /app with prefilled admin creds, dashboard renders animated stat cards, all sidebar nav routes reachable, every module dialog opens (events/volunteers/projects/partners/donations), Impact and Reports pages render, PDF generate button executes without JS error, logout returns to /login and /app redirects unauthenticated users to /login. Public org page renders hero + stats + donate/volunteer CTAs without auth.",
+  "tested_scope": ["backend", "frontend", "auth", "integration"],
+  "passed": [
+    "POST /api/auth/login returns user + sets cookies (200)",
+    "GET /api/auth/me with cookie returns user (200)",
+    "POST /api/auth/register creates new user (200)",
+    "GET /api/stats returns full stats/monthly payload (200)",
+    "GET /api/events, /api/volunteers, /api/projects, /api/partners, /api/donations all list seeded data (200)",
+    "POST /api/events + DELETE /api/events/{id} succeed (200)",
+    "GET /api/public/org/hope-in-hand returns org + events + stats (200, no auth)",
+    "GET /api/stats without cookie returns 401",
+    "Frontend /login submits with prefilled admin credentials and redirects to /app",
+    "Dashboard shows stat-card-meals-made, stat-card-monthly-goal, stat-card-volunteer-hours, stat-card-volunteers-count",
+    "Sidebar navigation works: dashboard, events, volunteers, projects, partners, donations, impact, reports, settings, public-profile",
+    "new-event-btn opens event-dialog; new-volunteer-btn, new-project-btn, new-partner-btn, record-donation-btn open their dialogs",
+    "Impact page renders without error",
+    "Reports generate-pdf-report-btn triggers jsPDF without JS error",
+    "logout-btn returns to /login; revisiting /app redirects to /login",
+    "Public /org/hope-in-hand renders hero, stat grid, donate & volunteer buttons"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true,
+  "notes": "One benign console 401 observed on unauthenticated /me probe from public page (expected). Event schema requires status in ['upcoming','completed','cancelled'] (documented for future test scripts)."
+}
+
