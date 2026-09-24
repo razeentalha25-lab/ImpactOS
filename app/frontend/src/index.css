@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..800&family=JetBrains+Mono:wght@400..700&family=Plus+Jakarta+Sans:wght@300..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 36 40% 96%;
+  --foreground: 217 33% 17%;
+  --card: 0 0% 100%;
+  --card-foreground: 217 33% 17%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 217 33% 17%;
+  --primary: 186 76% 22%;
+  --primary-foreground: 40 40% 98%;
+  --secondary: 30 25% 93%;
+  --secondary-foreground: 217 33% 17%;
+  --muted: 30 25% 93%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 9 71% 58%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 33 20% 86%;
+  --input: 33 20% 86%;
+  --ring: 186 76% 22%;
+  --radius: 0.75rem;
+  --chart-1: 186 76% 22%;
+  --chart-2: 9 71% 58%;
+  --chart-3: 45 93% 47%;
+  --chart-4: 217 91% 60%;
+  --chart-5: 142 71% 45%;
+}
+
+* { border-color: hsl(var(--border)); }
+html, body { background: #FAF7F2; color: #1E293B; font-family: 'DM Sans', system-ui, sans-serif; }
+h1,h2,h3,h4,h5 { font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif; letter-spacing: -0.01em; }
+.font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+.font-mono-stat { font-family: 'JetBrains Mono', monospace; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #D4CFC7; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #B8B2A9; }
+
+/* Selection */
+::selection { background: #0D5C63; color: #FAF7F2; }
+
+/* Cards */
+.io-card { background:#fff; border:1px solid #E6E1DA; border-radius: 16px; box-shadow: 0 1px 3px 0 rgba(30,41,59,0.04); transition: box-shadow .2s, transform .2s; }
+.io-card:hover { box-shadow: 0 10px 25px -8px rgba(30,41,59,0.08); }
+
+/* Buttons */
+.io-btn-primary { background:#0D5C63; color:#fff; padding:0.6rem 1.1rem; border-radius:10px; font-weight:600; transition:all .15s; }
+.io-btn-primary:hover { background:#09474D; }
+.io-btn-accent { background:#E05A47; color:#fff; padding:0.6rem 1.1rem; border-radius:10px; font-weight:600; transition:all .15s; }
+.io-btn-accent:hover { background:#C84937; }
+.io-btn-ghost { background:transparent; color:#1E293B; padding:0.55rem 1rem; border-radius:10px; font-weight:500; }
+.io-btn-ghost:hover { background:#F3EFEA; }
+
+/* Sidebar nav */
+.nav-item { display:flex; align-items:center; gap:0.75rem; padding:0.6rem 0.85rem; border-radius:10px; color:#64748B; font-weight:500; transition:all .15s; }
+.nav-item:hover { background:#EFEAE3; color:#1E293B; }
+.nav-item.active { background:#0D5C63; color:#fff; }
+.nav-item.active svg { color:#fff; }
+
+/* Bento grid dot pattern for public page */
+.dot-pattern { background-image: radial-gradient(circle, #D4CFC7 1px, transparent 1px); background-size: 22px 22px; }
+
+/* Fade in */
+@keyframes ioFadeUp { from {opacity:0; transform: translateY(8px);} to {opacity:1; transform:none;} }
+.io-fade-up { animation: ioFadeUp .4s ease-out both; }
+
+/* Print for PDF */
+@media print { .no-print { display:none !important; } }
