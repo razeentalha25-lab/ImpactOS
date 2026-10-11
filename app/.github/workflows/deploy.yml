@@ -40,7 +40,7 @@ jobs:
           # Points to the compiled folder inside your frontend directory
           path: 'app/frontend/dist'
 
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
